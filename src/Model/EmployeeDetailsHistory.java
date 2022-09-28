@@ -26,4 +26,11 @@ public class EmployeeDetailsHistory {
     public void setTableData(ArrayList<EmployeeDetails> tableData) {
         this.tableData = tableData;
     }
+    
+    //adds new employee detail ie.row
+    public EmployeeDetails addData(){
+        EmployeeDetails newEmployee = new EmployeeDetails();
+        tableData.add(newEmployee);
+        return newEmployee;
+    }
 }

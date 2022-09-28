@@ -17,7 +17,24 @@ public class EmployeeDetails {
     private int level;
     private String teamInfo;
     private String positionTitle;
-    private String contactInfo;
+    private int phoneNo;
+    private String email;
+
+    public int getPhoneNo() {
+        return phoneNo;
+    }
+
+    public void setPhoneNo(int phoneNo) {
+        this.phoneNo = phoneNo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public String getName() {
         return name;
@@ -82,13 +99,4 @@ public class EmployeeDetails {
     public void setPositionTitle(String positionTitle) {
         this.positionTitle = positionTitle;
     }
-
-    public String getContactInfo() {
-        return contactInfo;
-    }
-
-    public void setContactInfo(String contactInfo) {
-        this.contactInfo = contactInfo;
-    }
-    
 }
