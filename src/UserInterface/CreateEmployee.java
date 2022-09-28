@@ -70,6 +70,11 @@ public class CreateEmployee extends javax.swing.JFrame {
         });
 
         btnViewData.setText("View Data");
+        btnViewData.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewDataActionPerformed(evt);
+            }
+        });
 
         lblName.setText("Name:");
 
@@ -276,6 +281,14 @@ public class CreateEmployee extends javax.swing.JFrame {
         txtEmail.setText("");
     }//GEN-LAST:event_btnCreateActionPerformed
 
+    private void btnViewDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewDataActionPerformed
+        // TODO add your handling code here:
+//        EmployeeDataTable viewTable = new EmployeeDataTable(tableData);
+        EmployeeDataTable viewTable = new EmployeeDataTable();
+
+        viewTable.setVisible(true);
+    }//GEN-LAST:event_btnViewDataActionPerformed
+    
     /**
      * @param args the command line arguments
      */
