@@ -137,6 +137,11 @@ public class CreateEmployee extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTableData.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableDataMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(jTableData);
 
         btnDelete.setText("Delete");
@@ -328,15 +333,39 @@ public class CreateEmployee extends javax.swing.JFrame {
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-//        EmployeeDataTable viewTable = new EmployeeDataTable(tableData);
-//        EmployeeDataTable viewTable = new EmployeeDataTable();
-//
-//        viewTable.setVisible(true);
-//        
-//        String data[] = {txtName.getText()};
-//
-//        DefaultTableModel model = (DefaultTableModel)jTableCreate.getModel();
-//        model.addRow(data);
+        DefaultTableModel model = (DefaultTableModel) jTableData.getModel();
+        
+        if(jTableData.getSelectedRowCount() == 1){
+            String name = txtName.getText();
+            int employeeID = Integer.parseInt(txtEmployeeID.getText());
+            int age = Integer.parseInt(txtAge.getText());
+            String gender = txtGender.getText();
+            String startDate = txtStartDate.getText();
+            int level = Integer.parseInt(txtLevel.getText());
+            String teamInfo = txtTeamInfo.getText();
+            String positionTitle = txtPositionTitle.getText();
+            int phoneNo = Integer.parseInt(txtPhone.getText());
+            String email = txtEmail.getText();
+            
+            model.setValueAt(name, jTableData.getSelectedRow(), 0);
+            model.setValueAt(employeeID, jTableData.getSelectedRow(), 1);
+            model.setValueAt(age, jTableData.getSelectedRow(), 2);
+            model.setValueAt(gender, jTableData.getSelectedRow(), 3);
+            model.setValueAt(startDate, jTableData.getSelectedRow(), 4);
+            model.setValueAt(level, jTableData.getSelectedRow(), 5);
+            model.setValueAt(teamInfo, jTableData.getSelectedRow(), 6);
+            model.setValueAt(positionTitle, jTableData.getSelectedRow(), 7);
+            model.setValueAt(phoneNo, jTableData.getSelectedRow(), 8);
+            model.setValueAt(email, jTableData.getSelectedRow(), 9);
+            
+            JOptionPane.showMessageDialog(this, "Updated");
+        }else if(jTableData.getRowCount() == 0){
+            JOptionPane.showMessageDialog(this, "Table Empty");
+        }else{
+            //if multiple rows
+            JOptionPane.showMessageDialog(this, "Select only one row");
+        }
+
         
     }//GEN-LAST:event_btnUpdateActionPerformed
 
@@ -353,6 +382,35 @@ public class CreateEmployee extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Choose only one Row for Deletion");
         }
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void jTableDataMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableDataMouseClicked
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTableData.getModel();
+        
+        //getting data from table
+        String currentName = model.getValueAt(jTableData.getSelectedRow(), 0).toString();
+        String currentID = model.getValueAt(jTableData.getSelectedRow(), 1).toString();
+        String currentAge = model.getValueAt(jTableData.getSelectedRow(), 2).toString();
+        String currentGender = model.getValueAt(jTableData.getSelectedRow(), 3).toString();
+        String currentStartDate = model.getValueAt(jTableData.getSelectedRow(), 4).toString();
+        String currentLevel = model.getValueAt(jTableData.getSelectedRow(), 5).toString();
+        String currentTeamInfo = model.getValueAt(jTableData.getSelectedRow(), 6).toString();
+        String currentPositionTitle = model.getValueAt(jTableData.getSelectedRow(), 7).toString();
+        String currentPhone = model.getValueAt(jTableData.getSelectedRow(), 8).toString();
+        String currentEmail = model.getValueAt(jTableData.getSelectedRow(), 9).toString();
+
+        //setting values to textFields
+        txtName.setText(currentName);
+        txtEmployeeID.setText(currentID);
+        txtAge.setText(currentAge);
+        txtGender.setText(currentGender);
+        txtStartDate.setText(currentStartDate);
+        txtLevel.setText(currentLevel);
+        txtTeamInfo.setText(currentTeamInfo);
+        txtPositionTitle.setText(currentPositionTitle);
+        txtPhone.setText(currentPhone);
+        txtEmail.setText(currentEmail);
+    }//GEN-LAST:event_jTableDataMouseClicked
     
     /**
      * @param args the command line arguments
