@@ -6,6 +6,8 @@ package UserInterface;
 
 import Model.EmployeeDetails;
 import Model.EmployeeDetailsHistory;
+import static javax.swing.JComponent.TOOL_TIP_TEXT_KEY;
+import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
@@ -27,6 +29,9 @@ public class CreateEmployee extends javax.swing.JFrame {
         initComponents();
         tableData = new EmployeeDetailsHistory();
     }
+    
+    ViewNewJframe viewFrameSelectedRow = new ViewNewJframe();
+//    viewDataFrame viewDataNewFrame = new viewDataFrame();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -67,6 +72,8 @@ public class CreateEmployee extends javax.swing.JFrame {
         jTableData = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
         lblSearch = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -164,6 +171,20 @@ public class CreateEmployee extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("jButton1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("View Details");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -199,10 +220,13 @@ public class CreateEmployee extends javax.swing.JFrame {
                     .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtStartDate, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtLevel, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTeamInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 295, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
+                        .addComponent(jButton2)
+                        .addGap(84, 84, 84)
                         .addComponent(btnCreate)
                         .addGap(91, 91, 91)
                         .addComponent(btnUpdate)
@@ -232,6 +256,12 @@ public class CreateEmployee extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton2)
+                        .addContainerGap())
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -269,18 +299,19 @@ public class CreateEmployee extends javax.swing.JFrame {
                             .addComponent(lblEmail)
                             .addComponent(txtPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnCreate)
-                            .addComponent(btnUpdate)
-                            .addComponent(btnDelete))
-                        .addContainerGap())
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(13, 13, 13)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(btnCreate)
+                                    .addComponent(btnUpdate)
+                                    .addComponent(btnDelete)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton1)
+                                .addGap(20, 20, 20))))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -456,6 +487,54 @@ public class CreateEmployee extends javax.swing.JFrame {
         jTableData.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(query));
     }//GEN-LAST:event_lblSearchKeyPressed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        JFileChooser fileUpload = new JFileChooser();
+        fileUpload.showDialog(null, TOOL_TIP_TEXT_KEY);
+//        File getImage = fileUpload.getSelectedFile();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        DefaultTableModel model = (DefaultTableModel) jTableData.getModel();
+
+        int selectedRowDisplay = jTableData.getSelectedRow();
+        
+        if(selectedRowDisplay == -1){
+            JOptionPane.showMessageDialog(this, "Please Select a Row");
+        }else{
+            viewFrameSelectedRow.setVisible(true);
+            viewFrameSelectedRow.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            
+            //getting data from jtable selected row
+            String getRowName = model.getValueAt(selectedRowDisplay, 0).toString();
+            String getRowID = model.getValueAt(selectedRowDisplay, 1).toString();
+            String getRowAge = model.getValueAt(selectedRowDisplay, 2).toString();
+            String getRowGender = model.getValueAt(selectedRowDisplay, 3).toString();
+            String getRowDate = model.getValueAt(selectedRowDisplay, 4).toString();
+            String getRowLevel = model.getValueAt(selectedRowDisplay, 5).toString();
+            String getRowInfo = model.getValueAt(selectedRowDisplay, 6).toString();
+            String getRowTitle = model.getValueAt(selectedRowDisplay, 7).toString();
+            String getRowPhone = model.getValueAt(selectedRowDisplay, 8).toString();
+            String getRowEmail = model.getValueAt(selectedRowDisplay, 9).toString();
+
+            //setting into the selected row
+            viewFrameSelectedRow.textFieldNameNewFrame.setText(getRowName);
+            viewFrameSelectedRow.textFieldIDNewFrame.setText(getRowID);
+            viewFrameSelectedRow.textFieldAgeNewFrame.setText(getRowAge);
+            viewFrameSelectedRow.textFieldGenderNewFrame.setText(getRowGender);
+            viewFrameSelectedRow.textFieldDateNewFrame.setText(getRowDate);
+            viewFrameSelectedRow.textFieldTeamNewFrame.setText(getRowLevel);
+            viewFrameSelectedRow.textFieldTitleNewFrame.setText(getRowInfo);
+            viewFrameSelectedRow.textFieldPhoneNewFrame.setText(getRowTitle);
+            viewFrameSelectedRow.textFieldEmailNewFrame.setText(getRowPhone);
+            viewFrameSelectedRow.textFieldEmailNewFrame.setText(getRowEmail);
+
+
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
     
     /**
      * @param args the command line arguments
@@ -497,6 +576,8 @@ public class CreateEmployee extends javax.swing.JFrame {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnUpdate;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
