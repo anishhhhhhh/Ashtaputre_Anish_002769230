@@ -11,6 +11,7 @@ import java.io.File;
 import javax.swing.ImageIcon;
 import static javax.swing.JComponent.TOOL_TIP_TEXT_KEY;
 import javax.swing.JFileChooser;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -381,6 +382,7 @@ public class CreateEmployee extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNameActionPerformed
 
+    
     private void btnCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateActionPerformed
         // TODO add your handling code here:
         
@@ -395,6 +397,13 @@ public class CreateEmployee extends javax.swing.JFrame {
         int phoneNo = Integer.parseInt(txtPhone.getText());
         String email = txtEmail.getText();
         
+        JLabel imageLabel = new JLabel();
+        ImageIcon imageIcon = new ImageIcon(imagePath);
+        
+        //storing image in jlabel
+        imageLabel.setIcon(imageIcon);
+//        Image OGimage = image.getImage();
+        
         EmployeeDetails newData = tableData.addData();
         
         newData.setName(name);
@@ -408,7 +417,7 @@ public class CreateEmployee extends javax.swing.JFrame {
         newData.setPhoneNo(phoneNo);
         newData.setEmail(email);
         
-        Object data[] = {name, employeeID, age, gender, startDate, level, teamInfo, positionTitle, phoneNo, email};
+        Object data[] = {name, employeeID, age, gender, startDate, level, teamInfo, positionTitle, phoneNo, email, imageLabel};
         DefaultTableModel model = (DefaultTableModel)jTableData.getModel();
 //        model.setRowCount(0);
         
@@ -426,6 +435,7 @@ public class CreateEmployee extends javax.swing.JFrame {
         txtPositionTitle.setText("");
         txtPhone.setText("");
         txtEmail.setText("");
+        lblImage.setIcon(imageIcon);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -516,7 +526,6 @@ public class CreateEmployee extends javax.swing.JFrame {
         TableRowSorter<DefaultTableModel> tr = new TableRowSorter<DefaultTableModel>(model);
         jTableData.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(query));
-//        System.out.print(query);
     }//GEN-LAST:event_lblSearchKeyReleased
 
     private void lblSearchKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lblSearchKeyPressed
@@ -528,17 +537,17 @@ public class CreateEmployee extends javax.swing.JFrame {
         jTableData.setRowSorter(tr);
         tr.setRowFilter(RowFilter.regexFilter(query));
     }//GEN-LAST:event_lblSearchKeyPressed
-
+    String imagePath = ""; 
     private void btnBrowseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBrowseActionPerformed
         // TODO add your handling code here:
-        JFileChooser fileUpload = new JFileChooser();
+        JFileChooser fileUpload = new JFileChooser("C:\\Users\\anish\\OneDrive\\Pictures\\Screenshots");
         FileNameExtensionFilter imageGetter = new FileNameExtensionFilter("IMAGES","png", "jpg", "jpeg");
         fileUpload.addChoosableFileFilter(imageGetter);
         int openDialog = fileUpload.showOpenDialog(null);
         
         if(openDialog == JFileChooser.APPROVE_OPTION){
             File imageSelected = fileUpload.getSelectedFile();
-            String imagePath = imageSelected.getAbsolutePath();
+            imagePath = imageSelected.getAbsolutePath();
             
             //displaying image on label
             ImageIcon icon = new ImageIcon(imagePath);
@@ -574,8 +583,11 @@ public class CreateEmployee extends javax.swing.JFrame {
             String getRowTitle = model.getValueAt(selectedRowDisplay, 7).toString();
             String getRowPhone = model.getValueAt(selectedRowDisplay, 8).toString();
             String getRowEmail = model.getValueAt(selectedRowDisplay, 9).toString();
-//            JLabel newImage = 
-                    
+            ImageIcon getImage = new ImageIcon(imagePath);
+            Image newImageIcon = getImage.getImage().getScaledInstance(lblImage.getWidth(), lblImage.getHeight(), Image.SCALE_SMOOTH);
+
+//            Image newImageIcon = newImage.getImage().getScaledInstance(viewFrameSelectedRow.lblImageNewFrame.getWidth(), viewFrameSelectedRow.lblImageNewFrame.getHeight(), Image.SCALE_SMOOTH );
+            
             //setting into the selected row
             viewFrameSelectedRow.textFieldNameNewFrame.setText(getRowName);
             viewFrameSelectedRow.textFieldIDNewFrame.setText(getRowID);
@@ -587,6 +599,7 @@ public class CreateEmployee extends javax.swing.JFrame {
             viewFrameSelectedRow.textFieldPhoneNewFrame.setText(getRowTitle);
             viewFrameSelectedRow.textFieldEmailNewFrame.setText(getRowPhone);
             viewFrameSelectedRow.textFieldEmailNewFrame.setText(getRowEmail);
+            viewFrameSelectedRow.lblImageNewFrame.setIcon(new ImageIcon(newImageIcon));
 
         }
     }//GEN-LAST:event_jButton2ActionPerformed

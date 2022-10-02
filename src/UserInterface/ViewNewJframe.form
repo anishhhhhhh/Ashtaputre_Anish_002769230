@@ -90,7 +90,7 @@
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="textFieldEmailNewFrame" pref="257" max="32767" attributes="0"/>
-                          <Component id="jLabel13" max="32767" attributes="0"/>
+                          <Component id="lblImageNewFrame" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -104,7 +104,7 @@
               <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <Component id="jLabel13" min="-2" pref="229" max="-2" attributes="0"/>
+                      <Component id="lblImageNewFrame" min="-2" pref="229" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
                       <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -293,10 +293,10 @@
         <Property name="text" type="java.lang.String" value="Email"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel13">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel13"/>
-      </Properties>
+    <Component class="javax.swing.JLabel" name="lblImageNewFrame">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>

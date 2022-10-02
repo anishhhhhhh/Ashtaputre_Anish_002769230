@@ -48,7 +48,7 @@ public class ViewNewJframe extends javax.swing.JFrame {
         textFieldNameNewFrame = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
+        lblImageNewFrame = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,8 +116,6 @@ public class ViewNewJframe extends javax.swing.JFrame {
 
         jLabel12.setText("Email");
 
-        jLabel13.setText("jLabel13");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -174,7 +172,7 @@ public class ViewNewJframe extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(textFieldEmailNewFrame, javax.swing.GroupLayout.DEFAULT_SIZE, 257, Short.MAX_VALUE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(lblImageNewFrame, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(69, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -183,7 +181,7 @@ public class ViewNewJframe extends javax.swing.JFrame {
                 .addGap(11, 11, 11)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblImageNewFrame, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(151, 151, 151)
                         .addComponent(jLabel10))
                     .addGroup(layout.createSequentialGroup()
@@ -300,7 +298,6 @@ public class ViewNewJframe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -309,6 +306,7 @@ public class ViewNewJframe extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
+    public javax.swing.JLabel lblImageNewFrame;
     public javax.swing.JTextField textFieldAgeNewFrame;
     public javax.swing.JTextField textFieldDateNewFrame;
     public javax.swing.JTextField textFieldEmailNewFrame;

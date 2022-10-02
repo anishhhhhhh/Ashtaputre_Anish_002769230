@@ -4,6 +4,9 @@
  */
 package Model;
 
+import java.awt.Image;
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Anish
@@ -19,6 +22,16 @@ public class EmployeeDetails {
     private String positionTitle;
     private int phoneNo;
     private String email;
+//    private ImageIcon image;
+//
+//    public ImageIcon getImage() {
+//        return image;
+//    }
+//
+//    public void setImage(ImageIcon image) {
+//        this.image = image;
+//    }
+
 
     public int getPhoneNo() {
         return phoneNo;
