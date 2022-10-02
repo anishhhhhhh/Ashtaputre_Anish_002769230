@@ -101,11 +101,13 @@
                           </Group>
                           <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
+                              <Component id="jScrollPane1" pref="779" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="lblSearch" min="-2" pref="147" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane1" alignment="0" pref="781" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -186,7 +188,10 @@
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                  <Component id="lblSearch" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="lblSearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="43" max="32767" attributes="0"/>
@@ -235,7 +240,7 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblGender">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Gender"/>
+            <Property name="text" type="java.lang.String" value="Gender:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblEmail">
@@ -245,12 +250,12 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblPositionTitle">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Position Title"/>
+            <Property name="text" type="java.lang.String" value="Position Title:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblLevel">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Level"/>
+            <Property name="text" type="java.lang.String" value="Level:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblStartDate">
@@ -260,17 +265,17 @@
         </Component>
         <Component class="javax.swing.JLabel" name="lblContactInfo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Contact Info"/>
+            <Property name="text" type="java.lang.String" value="Contact Info:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblTeamInfo">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Team Info"/>
+            <Property name="text" type="java.lang.String" value="Team Info:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="lblPhone">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Phone No."/>
+            <Property name="text" type="java.lang.String" value="Phone No.:"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -412,9 +417,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="lblSearch">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Search"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="lblSearchActionPerformed"/>
             <EventHandler event="keyPressed" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="lblSearchKeyPressed"/>
@@ -438,6 +440,11 @@
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblImage">
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel2">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Search"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>

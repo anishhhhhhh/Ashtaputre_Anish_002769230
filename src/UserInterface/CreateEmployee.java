@@ -80,6 +80,7 @@ public class CreateEmployee extends javax.swing.JFrame {
         btnBrowse = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         lblImage = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,21 +104,21 @@ public class CreateEmployee extends javax.swing.JFrame {
 
         lblAge.setText("Age:");
 
-        lblGender.setText("Gender");
+        lblGender.setText("Gender:");
 
         lblEmail.setText("Email");
 
-        lblPositionTitle.setText("Position Title");
+        lblPositionTitle.setText("Position Title:");
 
-        lblLevel.setText("Level");
+        lblLevel.setText("Level:");
 
         lblStartDate.setText("Start Date:");
 
-        lblContactInfo.setText("Contact Info");
+        lblContactInfo.setText("Contact Info:");
 
-        lblTeamInfo.setText("Team Info");
+        lblTeamInfo.setText("Team Info:");
 
-        lblPhone.setText("Phone No.");
+        lblPhone.setText("Phone No.:");
 
         txtName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -191,7 +192,6 @@ public class CreateEmployee extends javax.swing.JFrame {
             }
         });
 
-        lblSearch.setText("Search");
         lblSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lblSearchActionPerformed(evt);
@@ -219,6 +219,8 @@ public class CreateEmployee extends javax.swing.JFrame {
                 jButton2ActionPerformed(evt);
             }
         });
+
+        jLabel2.setText("Search");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -272,10 +274,12 @@ public class CreateEmployee extends javax.swing.JFrame {
                             .addComponent(lblContactInfo))
                         .addGap(12, 12, 12)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 779, Short.MAX_VALUE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(18, 18, 18)
                                 .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)))
+                                .addGap(0, 0, Short.MAX_VALUE))))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnCreate)
@@ -338,7 +342,9 @@ public class CreateEmployee extends javax.swing.JFrame {
                 .addComponent(jLabel1))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(26, 26, 26)
-                .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
@@ -397,6 +403,8 @@ public class CreateEmployee extends javax.swing.JFrame {
         imageLabel.setIcon(imageIcon);
         
         boolean isMailValid = false;
+        int phoneLength = String.valueOf(phoneNo).length();
+
         for(int i = 0; i < email.length(); i++){
             char ch = email.charAt(i);
             if(ch == '@'){
@@ -407,48 +415,43 @@ public class CreateEmployee extends javax.swing.JFrame {
         if(isMailValid == false){
             JOptionPane.showMessageDialog(this, "Please Input Correct mail ID");
             return;
-        }
-        
-        boolean isPhoneValid = false;
-        int phoneLength = String.valueOf(phoneNo).length();
-        
-        if(phoneLength != 10){
-            JOptionPane.showMessageDialog(this, "Please Input correct phone number");
+        }else if(phoneLength != 10){
+            JOptionPane.showMessageDialog(this, "Phone number should be of 10 digits!");
             return;
+        }else{
+            EmployeeDetails newData = tableData.addData();
+        
+            newData.setName(name);
+            newData.setEmployeeID(employeeID);
+            newData.setAge(age);
+            newData.setGender(gender);
+            newData.setStartDate(startDate);
+            newData.setLevel(level);
+            newData.setTeamInfo(teamInfo);
+            newData.setPositionTitle(positionTitle);
+            newData.setPhoneNo(phoneNo);
+            newData.setEmail(email);
+        
+            Object data[] = {name, employeeID, age, gender, startDate, level, teamInfo, positionTitle, phoneNo, email, imageLabel};
+            DefaultTableModel model = (DefaultTableModel)jTableData.getModel();
+//          model.setRowCount(0);
+        
+            JOptionPane.showMessageDialog(this, "New added");
+        
+            model.addRow(data);
+        
+            txtName.setText("");
+            txtEmployeeID.setText("");
+            txtAge.setText("");
+            txtGender.setText("");
+            txtStartDate.setText("");
+            txtLevel.setText("");
+            txtTeamInfo.setText("");
+            txtPositionTitle.setText("");
+            txtPhone.setText("");
+            txtEmail.setText("");
+            lblImage.setIcon(imageIcon);
         }
-        
-        EmployeeDetails newData = tableData.addData();
-        
-        newData.setName(name);
-        newData.setEmployeeID(employeeID);
-        newData.setAge(age);
-        newData.setGender(gender);
-        newData.setStartDate(startDate);
-        newData.setLevel(level);
-        newData.setTeamInfo(teamInfo);
-        newData.setPositionTitle(positionTitle);
-        newData.setPhoneNo(phoneNo);
-        newData.setEmail(email);
-        
-        Object data[] = {name, employeeID, age, gender, startDate, level, teamInfo, positionTitle, phoneNo, email, imageLabel};
-        DefaultTableModel model = (DefaultTableModel)jTableData.getModel();
-//        model.setRowCount(0);
-        
-        JOptionPane.showMessageDialog(this, "New added");
-        
-        model.addRow(data);
-        
-        txtName.setText("");
-        txtEmployeeID.setText("");
-        txtAge.setText("");
-        txtGender.setText("");
-        txtStartDate.setText("");
-        txtLevel.setText("");
-        txtTeamInfo.setText("");
-        txtPositionTitle.setText("");
-        txtPhone.setText("");
-        txtEmail.setText("");
-        lblImage.setIcon(imageIcon);
     }//GEN-LAST:event_btnCreateActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
@@ -678,6 +681,7 @@ public class CreateEmployee extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableData;
