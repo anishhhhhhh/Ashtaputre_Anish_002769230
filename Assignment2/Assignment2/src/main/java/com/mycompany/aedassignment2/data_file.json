@@ -1,0 +1,16 @@
+{"cityArray":[
+        {"city1":
+                    {"hospitalArray":[
+                    {"doctorArray":[
+                            {"Doc 1":
+                                        {"patientArray":[{"Patient1":[{"encounter1":"","":"","":""}],"Patient2":{}}],"Specialisation":"","joinDate":"","resignDate":""}
+                            }
+                        ]
+                        }
+                    ]}
+                },
+        {"city2":""},
+        {"city3":""}
+    ],
+"personArray":[{"Person 1":{"id":"","name":"","role":"","password":"","SSN":"","Gender":"","DOB":""}}]
+}
