@@ -1,6 +1,14 @@
-Description:
-This Project is a platform for people to find medical resource in different city and community.
+Description: </br>
+This program is a full-fledged Hospital Management System Prototype, allowing users in various roles and administrators to manage data effectively. This project can be used by hospital chains as a widely used platform where users can log in as patients, administrators can handle data entry, and clinicians can record patient encounters in a single application, thereby reducing the likelihood of error and data management issues.
 
+The application is developed on netbeans with Java swing, all the UI is in a card-stack format.
+
+- [x] Data Validation for all inputs.
+- [x] Patients are able to look for a doctor under the near hospitals. 
+- [x] Doctors are able to diagnose and leave encounter record based on vital signs.
+- [x] Community admins are able to modify the information under a community.
+- [x] System admin have all access(CRUD) to all resources in this application.
+- [x] Log out available for moving between roles.
 
 Class Diagram:
 
